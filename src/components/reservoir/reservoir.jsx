@@ -1,13 +1,18 @@
 import { useState } from 'react';
 
 const Reservoir = (props) => {
-    const { max } = props;
+    const { max } = props;                               // Props "data" ↓
+    const { onReservoirPlein, onReservoirVide } = props; // Props "Event" ↑
 
     const [niveau, setNiveau] = useState(0);
 
     const handleUp = () => {
-        if (niveau < 10) {
+        if (niveau < max) {
             setNiveau(n => n + 1);
+        }
+        else {
+            onReservoirPlein();
+            console.log('Event Plein');
         }
     };
 
@@ -15,7 +20,11 @@ const Reservoir = (props) => {
         if (niveau > 0) {
             setNiveau(n => n - 1);
         }
-    };      
+        else {
+            onReservoirVide();
+            console.log('Event Vide');
+        }
+    };
 
     return (
         <div>
@@ -27,7 +36,9 @@ const Reservoir = (props) => {
 };
 
 Reservoir.defaultProps = {
-    max: 10
+    max: 10,
+    onReservoirPlein: () => { }, // LOOP
+    onReservoirVide: () => { }   // -> Permet d'évité des erreurs quand l'event n'est pas utilisé
 };
 
 export default Reservoir;
