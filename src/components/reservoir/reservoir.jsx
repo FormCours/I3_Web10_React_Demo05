@@ -37,7 +37,7 @@ const Reservoir = (props) => {
 
 Reservoir.defaultProps = {
     max: 10,
-    onReservoirPlein: () => { }, // LOOP
+    onReservoirPlein: () => { }, // NOOP
     onReservoirVide: () => { }   // -> Permet d'évité des erreurs quand l'event n'est pas utilisé
 };
 
