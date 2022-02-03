@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import ManipulationTableau from './components/manipulation-tableau/manipulation-tableau';
 import Reservoir from './components/reservoir/reservoir';
 import SearchBar from './components/search-bar/search-bar';
 
@@ -34,6 +35,9 @@ function App() {
       <h2>Barre de recherche</h2>
       <SearchBar hint="Qu'est ce que tu veux rechercher ma gueule ?!"
         onSearch={handleSearchResult} />
+
+      <h2>Exemple de manipulation de tableau</h2>
+      <ManipulationTableau />
     </div>
   );
 }
